@@ -2,22 +2,15 @@
 filedrag.js - HTML5 File Drag & Drop demonstration
 Featured on SitePoint.com
 Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
-and Modified by Ace(i.orzace.com)
+and Modified by sytmac
 */
+var fileupload = null;
 (function() {
 
 	// getElementById
 	function $id(id) {
 		return document.getElementById(id);
 	}
-
-
-	// output information
-	//function Output(msg) {
-		//var m = $id("messages");
-		//m.innerHTML = msg + m.innerHTML;
-	//}
-
 
 	// file drag hover
 	function FileDragHover(e) {
@@ -55,17 +48,29 @@ and Modified by Ace(i.orzace.com)
 
         var formData = new FormData();
 
-		// process all File objects
-		for (var i = 0, f; f = files[i]; i++) {
-            var entry = e.dataTransfer.items[i].webkitGetAsEntry();
-            if(entry.isFile)
-                formData.append('file', f);
-            else
-            {
-                alert("对不起哦");
-                return;
-            }
-            
+		// process drag File objects
+		if(e.dataTransfer)
+		{
+				for (var i = 0, f; f = files[i]; i++) {
+		            var entry = e.dataTransfer.items[i].webkitGetAsEntry();
+		            if(entry.isFile)
+		            	formData.append('file', f);
+		            else
+		            {
+		                alert("对不起哦,无法托拽文件夹");
+		                return;
+		            }
+		            
+				}
+	  }
+	  //process upload file objects
+	  else if(e.target)
+	  {
+	  		for (var i = 0, f; f = files[i]; i++) 
+	  		{
+
+		     formData.append('file', f);        
+				}
 		}
         
         xhr.send(formData);
@@ -100,7 +105,7 @@ and Modified by Ace(i.orzace.com)
 	if (window.File && window.FileList && window.FileReader) {
 		Init();
 	}
-
+fileupload = FileSelectHandler
 
 })();
 

@@ -142,12 +142,12 @@ $code:
                     <fieldset>
                         <legend>upload file:</legend>
                         <div>
-                            <input type="file" id="fileselect" name="file" / title="choose a file" onchange="this.form.submit();">
+                            <input type="file" id="fileselect" name="file" title="choose a file" onchange="fileupload(event);">
                             <div id="filedrag">or drop the file here</div>
                         </div>
                     </fieldset>
                 </form>
-		<div id="upload_progress" class="progress progress-striped active" style="display:none">
+								<div id="upload_progress" class="progress progress-striped active" style="display:none"> 
                         <div id="upload_progress_bar" class="bar"></div>
                 </div>
                 <table class="table table-hover menu">
