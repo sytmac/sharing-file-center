@@ -12,7 +12,7 @@ by [SimpleHTTPServer](http://docs.python.org/2/library/simplehttpserver.html) in
 1. [Download the latest release](https://github.com/sytmac/sharing-file-center/archive/master.zip) or `https://github.com/sytmac/sharing-file-center.git`
 2. Edit `config.py`, set `root` to the directory which you want to share. eg. `root = /home/xxx/center`
 3. Create this dir if it doesn't exist. eg. `mkdir /home/xxx/center`
-4. Edit 'config.py', set 'admin_name' and 'admin_password' to make you  delete the upload file var webpage
+4. Edit `config.py`, set `admin_name` and `admin_password` to make you  delete the upload file var webpage
 5. Start the daemon: `$ python index.py [port]`
 6. Access it from your browser : http://hostname[:port]
 7. Enjoy it.
